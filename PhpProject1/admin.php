@@ -148,6 +148,7 @@
 ?>
 		<li>
                     <span class="col1"><input type="checkbox" name="item[]" value="<?=$num?>"></span>
+                    <a href="board_update_form.php?num=<?=$num?>">[수정]</a>
                     <span class="col2"><?=$number?></span>
                     <span class="col3"><?=$name?></span>
                     <span class="col4"><?=$subject?></span>

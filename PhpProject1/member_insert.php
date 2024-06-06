@@ -36,28 +36,40 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// ID 중복 체크
+$sql = "SELECT * FROM members WHERE id='$id'";
+$result = mysqli_query($con, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    echo "
+      <script>
+          alert('이미 존재하는 아이디입니다.');
+          history.go(-1);
+      </script>
+    ";
+    exit;
+}
+
 // members 테이블에 데이터 삽입
 $sql = "INSERT INTO members (name, id, passwd, phone_num, gender, address, regist_day, grade, profile_img, age, hello) 
         VALUES ('$name_sql', '$id', '$pass', '$phone_num', '$gender', "
         . "'$address', '$regist_day', '$grade', '$profile_img_path', '$age', '$hello')";
 if (mysqli_query($con, $sql)) {
-  
+    // members_hobby 테이블에 데이터 삽입
+    for ($i = 0; $i < count($hobby); $i++) {
+        $sql = "INSERT INTO members_hobby (id, hobby) VALUES ('$id', '$hobby[$i]')";
+        mysqli_query($con, $sql);
+    }
+    // 페이지 이동
+    echo "
+      <script>
+          location.href = 'main_page.php';
+      </script>
+    ";
 } else {
     echo "오류: " . $sql . "<br>" . mysqli_error($con);
 }
 
-// members_hobby 테이블에 데이터 삽입
-for ($i = 0; $i < count($hobby); $i++) {
-    $sql = "INSERT INTO members_hobby (id, hobby) VALUES ('$id', '$hobby[$i]')";
-}
-
 // DB 연결 종료
 mysqli_close($con);
-
-// 페이지 이동
-echo "
-  <script>
-      location.href = 'main_page.php';
-  </script>
-";
 ?>

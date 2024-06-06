@@ -110,8 +110,8 @@
         <a href="board_list.php?type=<?=$type?>">[이전페이지]</a>
         <a href="board_jjim.php?num=<?=$num?>">[찜하기]</a>
         <?php
-            // 글쓴이와 현재 로그인한 유저와 동일 시 수정, 삭제 링크 표시
-            if ($id == $row['id']) {
+            // 글쓴이와 현재 로그인한 유저와 동일 or 관리자일시 수정, 삭제 링크 표시
+            if ($id == $row['id'] || $grade == 0) {
         ?>
             <a href="board_update_form.php?num=<?=$num?>">[수정]</a>
             <a href="board_delete.php?num=<?=$num?>">[삭제]</a>
