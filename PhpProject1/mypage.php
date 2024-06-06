@@ -129,7 +129,9 @@
             // 첫 번째 쿼리를 실행하여 모든 num 값을 배열에 저장
             $sql = "SELECT num FROM members_jjim WHERE id = '$id'";
             $result = mysqli_query($con, $sql);
-
+            if(!mysqli_num_rows($result)){
+                echo "게시글 없음";
+            }
             $nums = [];
 
             while ($row = mysqli_fetch_array($result)) {

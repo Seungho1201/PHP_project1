@@ -41,6 +41,7 @@
             display: block;
             margin: 0 auto;
             width: 50%;
+            height: 400px;
         }
         .action-buttons {
             border: 1px solid;
@@ -87,7 +88,7 @@
     $title = $row["title"];
     $text = $row["text"];
     $write_day = $row["write_day"];
-    $w_id= $row["id"];
+    $w_id = $row["id"];
     $img = ($row['board_img']) ? $row['board_img'] : '';    
     ?>
     
@@ -97,7 +98,9 @@
         <p>작성 아이디 : <?=$w_id?></p>
         
         <div>
-            <img src="<?=$img?>">
+            <?php if ($img): ?>
+                <img src="<?=$img?>">
+            <?php endif; ?>
         </div>
         
         <p><?=$text?></p>
@@ -108,12 +111,12 @@
         <a href="board_jjim.php?num=<?=$num?>">[찜하기]</a>
         <?php
             // 글쓴이와 현재 로그인한 유저와 동일 시 수정, 삭제 링크 표시
-            if($id == $row['id']){
+            if ($id == $row['id']) {
         ?>
             <a href="board_update_form.php?num=<?=$num?>">[수정]</a>
             <a href="board_delete.php?num=<?=$num?>">[삭제]</a>
         <?php
-        }
+            }
         ?>
     </div>
 </body>

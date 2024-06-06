@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 24-06-05 11:28
+-- 생성 시간: 24-06-06 04:55
 -- 서버 버전: 10.4.32-MariaDB
 -- PHP 버전: 8.0.30
 
@@ -37,6 +37,20 @@ CREATE TABLE `board` (
   `board_img` char(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- 테이블의 덤프 데이터 `board`
+--
+
+INSERT INTO `board` (`num`, `title`, `id`, `grade`, `write_day`, `text`, `board_img`) VALUES
+(54, '[뮤지션]공연 공지글', 'osh12010', 0, '2024-06-06 (04:42)', '00월 00일 00시 공연합니다', './img/공연이미지2.png'),
+(55, '[뮤지션]공연 공지글', 'osh12010', 0, '2024-06-06 (04:44)', '00월 00일 00시 공연합니다', './img/공연이미지3.jpeg'),
+(56, '공연 홍보합니다', 'osh12012', 2, '2024-06-06 (04:46)', '00월 00일 00시 공연합니다', './img/공연사진1.jpg'),
+(57, '공연 홍보해요', 'osh12012', 2, '2024-06-06 (04:47)', '00월 00일 00시 공연합니다', './img/공연사진2.jpg'),
+(59, '공연공연홍보', 'osh12012', 2, '2024-06-06 (04:48)', '00월 00일 00시 공연합니다', './img/공연사진4.jpg'),
+(60, '공연공연홍보홍보', 'osh12012', 2, '2024-06-06 (04:49)', '00월 00일 00시 공연합니다', './img/공연사진3.jpg'),
+(61, '일반 게시글', 'osh12012', 1, '2024-06-06 (04:49)', '일반게시글', ''),
+(62, '일반 게시글2', 'osh12012', 1, '2024-06-06 (04:50)', '일반게시글', '');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +71,14 @@ CREATE TABLE `members` (
   `age` int(11) DEFAULT NULL,
   `hello` char(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 테이블의 덤프 데이터 `members`
+--
+
+INSERT INTO `members` (`num`, `name`, `id`, `passwd`, `phone_num`, `gender`, `address`, `regist_day`, `grade`, `profile_img`, `age`, `hello`) VALUES
+(29, '관리자', 'osh12010', '1234', '01059143574', '남', '3, Gilma-ro 78beon-gil', '2024-06-06 (04:34)', 0, './img/night-snowy-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-934@0@i.jpg', 20, '안녕하세'),
+(30, '뮤지션', 'osh12012', '1234', '01059143574', '남', '3, Gilma-ro 78beon-gil', '2024-06-06 (04:45)', 2, './img/night-snowy-mountain-scenery-digital-art-4k-wallpaper-uhdpaper.com-934@0@i.jpg', 24, '안녕하세');
 
 -- --------------------------------------------------------
 
@@ -149,13 +171,13 @@ ALTER TABLE `message`
 -- 테이블의 AUTO_INCREMENT `board`
 --
 ALTER TABLE `board`
-  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- 테이블의 AUTO_INCREMENT `members`
 --
 ALTER TABLE `members`
-  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- 테이블의 AUTO_INCREMENT `message`

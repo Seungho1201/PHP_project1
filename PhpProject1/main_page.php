@@ -180,6 +180,10 @@
                 // 게시글의 grade가 2(뮤지션 등급)인 것만
                 $sql = "SELECT title, num, board_img FROM board WHERE grade = 2 ORDER BY num DESC";
                 $result = mysqli_query($con, $sql);
+                 // 게시글 없을시 게시글 없다고 출력
+                    if (!mysqli_num_rows($result)) {
+                        echo "게시글 없음";
+                    } else {
                 // sql 결과가 있을때 까지 최대 5개 (최신글로)
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
@@ -202,13 +206,16 @@
 
             <?php
                     $i++;
-                }
+                    }  
+                 
                 if (mysqli_num_rows($result) > 5) {
             ?>
                     <!-- 게시글이 5개 이상이면  더보기 출력-->
                     <a href="board_list.php?type=2"> 더보기</a>
             <?php
-                } if ($grade == 2) {
+                    } 
+                }
+                if ($grade == 2) {
             ?>
                     <!-- 뮤지션 유저 (현재 grade가 2 일때만 글작성 표시) -->
                     <a href="board_insert_form.php?grade=2"> 글작성</a>

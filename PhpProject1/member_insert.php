@@ -22,7 +22,7 @@ if ($profile_img['error'] == UPLOAD_ERR_OK) {
     $name = basename($profile_img['name']);
     $profile_img_path = $upload_dir . $name;
     if (move_uploaded_file($tmp_name, $profile_img_path)) {
-        echo "파일이 성공적으로 업로드되었습니다.";
+        //echo "파일이 성공적으로 업로드되었습니다.";
     } else {
         //echo "파일 업로드에 실패하였습니다.";
     }

@@ -26,7 +26,7 @@ if ($board_img['error'] == UPLOAD_ERR_OK) {
         //echo "파일 업로드에 실패하였습니다.";
     }
 } else {
-    echo "파일 업로드에 실패하였습니다. 오류 코드: " . $board_img['error'];
+    //echo "파일 업로드에 실패하였습니다. 오류 코드: " . $board_img['error'];
 }
 //    echo "$id ";
 //    echo "$title ";
