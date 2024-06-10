@@ -4,8 +4,18 @@ session_start();
 if (isset($_SESSION["id"])) {
     $id = $_SESSION["id"];
 } else {
-    $id = "";
+    $id = false;
 }
+
+if (!$id )
+    {
+        echo("<script>
+                alert('로그인 후 이용해주세요!');
+                history.go(-1);
+                </script>
+            ");
+        exit;
+    }
 // url에서 넘어온 num데이터 get (이때 num 데이터는 게시글의 num)
 $num = $_GET['num'];
 $con = mysqli_connect("localhost", "user1", "12345", "project1");

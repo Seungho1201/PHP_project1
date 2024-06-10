@@ -199,7 +199,7 @@
             <ul class="buttons">
                 <li><button onclick="location.href='message_box.php?mode=rv'">수신 쪽지함</button></li>
                 <li><button onclick="location.href='message_box.php?mode=send'">송신 쪽지함</button></li>
-                <li><button onclick="location.href='message_form.php'">쪽지 보내기</button></li>
+                <li><button onclick="location.href='message.php'">쪽지 보내기</button></li>
             </ul>
         </div>
     </div> <!-- container -->
