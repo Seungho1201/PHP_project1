@@ -99,7 +99,7 @@
             <!-- 게시글 반복 출력 -->
             <div style="border: 1px solid;
                         padding: 10px;
-                        height: 10%;
+                        height: 75px;
                         width: 80%;
                         margin: 0 auto; /* 가로 중앙 정렬 */
                         display: flex; /* 요소를 수평으로 정렬하기 위해 flex 사용 */
@@ -147,7 +147,7 @@
             ?>
             <div style="border: 1px solid;
                         padding: 10px;
-                        height: 10%;
+                        height: 75px;
                         width: 80%;
                         margin-left:auto;
                         margin-right : auto;"
@@ -172,4 +172,4 @@
         </div>
     </div>
 </body>
-</html
+</html>
