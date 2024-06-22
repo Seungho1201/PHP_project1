@@ -36,11 +36,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             else $grade = "";
         ?>
         
-        <div class="header">
-            <a href="main_page.php" style="text-decoration-line: none; color: black">
-                <h1 style="font-size: 75px;">PHP PROJECT</h1>
-            </a>
-        </div>
+        <header>
+            <?php include "header.php";?>
+        </header>
         
         <?php      
         // url에서 넘어온 type 데이터 GET

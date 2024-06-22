@@ -48,11 +48,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     $grade = $_GET['grade'];
     ?>
 
-    <div class="header">
-        <a href="main_page.php" style="text-decoration-line: none; color: black">
-            <h1 style="font-size: 75px;">PHP PROJECT</h1>
-        </a>
-    </div>
+    <header>
+    	<?php include "header.php";?>
+    </header>
     <div style="border: 1px solid; width: 60%; height: 600px;" id="round">
         <!-- 기능은 post 실행시board_insert.php?grade=넘어온 데이터 로 이동-->
         <form name="insert" method="post" action="board_insert.php?grade=<?=$grade?>" enctype="multipart/form-data">

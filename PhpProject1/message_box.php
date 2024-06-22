@@ -69,11 +69,9 @@
     if (isset($_SESSION["grade"])) $grade = $_SESSION["grade"];
     else $grade = "";
     ?>
-    <div class="header">
-        <a href="main_page.php" style="text-decoration-line: none; color: black">
-            <h1 style="font-size: 75px;">PHP PROJECT</h1>
-        </a>
-    </div>
+    <header>
+    	<?php include "header.php";?>
+    </header>
     <div class="container" id="round">
         <h3 style="text-align: center;">
             <?php

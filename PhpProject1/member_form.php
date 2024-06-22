@@ -92,11 +92,9 @@
 </style>
 
 <body>
-    <div class="header">
-        <a href="main_page.php" style="text-decoration-line: none; color: black">
-            <h1 style="font-size: 75px;">PHP PROJECT</h1>
-        </a>
-    </div>
+    <header>
+    	<?php include "header.php";?>
+    </header>
     <div class="container" id="round">
         <h1>회원가입 페이지</h1>
         <!-- 기능은 post 실행시 member_insert.php로 이동 -->

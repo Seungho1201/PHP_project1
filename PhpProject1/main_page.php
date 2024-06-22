@@ -71,11 +71,9 @@
 ?>
 
 <body>
-    <!--헤더 부분 -->
-    <div class="header">
-        <h1 style="font-size: 75px;">PHP PROJECT</h1>
-    </div>
-
+    <header>
+    	<?php include "header.php";?>
+    </header>
     <!--좌측 30% 공지사항, 일반게시판 중앙 50% 뮤지션 좌측 20% 추천-->
     <div class="content">
         <!--좌측 30% 공지사항 및 일반게시판-->

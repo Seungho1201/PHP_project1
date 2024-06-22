@@ -57,11 +57,9 @@
     }
 ?>
 
-     <div class="header">
-            <a href="main_page.php" style="text-decoration-line: none; color: black">
-                <h1 style="font-size: 75px;">PHP PROJECT</h1>
-            </a>
-        </div>
+     <header>
+    	<?php include "header.php";?>
+    </header>
     <div style="border: 2px solid; width: 80%; margin-left: auto; margin-right: auto" id="round">
    	<div id="admin_box">
 	    <h3 id="member_title">

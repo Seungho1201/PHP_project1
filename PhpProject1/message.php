@@ -130,11 +130,10 @@
     }
 ?>
 
- <div class="header">
-        <a href="main_page.php" style="text-decoration-line: none; color: black">
-            <h1 style="font-size: 75px;">PHP PROJECT</h1>
-        </a>
-    </div>
+    <header>
+    	<?php include "header.php";?>
+    </header>
+    
     </div>
     <div class="container" id="round">
     <div id="message_box">

@@ -84,11 +84,9 @@ $title = $row["title"];
 $content = $row["text"];
 $file_name = $row["board_img"];
 ?>
-<div class="header">
-    <a href="main_page.php" style="text-decoration-line: none; color: black">
-        <h1 style="font-size: 75px;">PHP PROJECT</h1>
-    </a>
-</div>
+    <header>
+    	<?php include "header.php";?>
+    </header>
 <div class="container" id="round">
     <!-- 기능은 post 실행시 board_update.php?num=게시글번호 로 이동 -->
     <form name="board_form" method="post" action="board_update.php?num=<?=$num?>" enctype="multipart/form-data">

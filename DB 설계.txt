@@ -1,0 +1,106 @@
+DB 설계
+========================================================================================
+1. 회원 DB
+- 컬럼
+- num, id, passwd, phone_num, sex, address, regist_day, grade (0 = 관리자, 1 = 뮤지션, 2 = 일반)
+- 취미분야 DB 외래키 참조
+- 찜 DB 외래키 참조
+- 회원 프로필 사진은 가입 후 수정 가능하게 만들 예정
+
+CREATE TABLE members (
+	num int auto_increment,		-- 가입한 사람 num
+	name char(15) not null,			-- 유저 이름
+	id char(20) not null,			-- 유저 ID
+	passwd char(20) not null,		-- 유저 비밀번호
+	phone_num char(20) not null,		-- 유저 폰번호
+	gender char(5),				-- 성별
+	address char(30) not null,		-- 주소
+	regist_day char(20),			-- 가입 날짜
+	grade int,					-- 등급(유저인지 뮤지션인지 관리자인지)
+	profile_img char(255),
+	primary key(num)				-- 기본키 지정
+);
+
+num	id	passwd	phone_num	gender	address	regist_day	grade	profile_img	
+
+-- 회원가입 쿼리문
+INSERT INTO members (id, passwd, phone_num, gender, address, registday, grade)
+VALUES ("아이디", "비밀번호", "전화번호", "성별", "주소", "가입 날짜", "등급");	-- 가입 시 일반 유저, 뮤지션 택 1
+
+======================================================================================
+
+1 - 1 취미 분야 DB (회원가입시 체크박스로 DB 저장) 
+id, hobby
+
+CREATE TABLE members_hobby(
+	id char(20) ,
+	hobby char(20) 
+);
+
+INSERT INTO members_hobby (id, hobby)
+VALUES ("회원가입 아이디", "관심사");	-- 관심사는 회원가입 시 체크박스에서 중복택 가능 (배열 형식으로 저장)
+
+
+=======================================================================================
+
+1 - 2 찜 DB (모든 유저가 어떤 게시판이든 찜 기능 가능)
+id, num(게시글 num GET 방식으로 가져올듯)
+
+CREATE TABLE members_jjim(
+	id char(20),
+	num int 	
+);
+
+
+
+--조회는 어떻게?
+-- 마이 페이지에서 찜 게시글 모아보기 만들 예정
+select title			-- 찜한 게시글 제목
+from board			-- board 테이블 조회
+where num = $num;	-- members_jjim  테이블의 $num과 board num 동일한 컬럼 조회
+
+========================================================================================
+2. 게시판DB
+- 컬럼
+- 글 번호, 작성자아이디, 작성자 등급, 작성날짜, 내용
+
+CREATE TABLE board (
+	num int auto_increment,	-- 게시글 기본키
+	title char(20),			-- 글 제목
+	id char(20),				-- 글 작성자 ID
+	grade int,				-- 등급(일반인지 뮤지션인지 관리자인지)
+	write_day char(20),		-- 작성 날짜 시간
+	text char(200),		-- 글 내용
+	primary key (num)
+);
+-- 게시판은 공지 게시판, 일반 게시판, 뮤지션 게시판으로 분할 예정
+
+-- 공지게시판 쿼리문
+SELECT d.title				-- 게시판은 제목만 출력(게시글 클릭시 글 내용 보임)
+FROM board d ON members m	-- board 테이블과 members 테이블 조인
+ON d.id = m.id 				-- members 테이블의 유저 id와 board 테이블의 글 작성 id가 일치하고 등급이 1(관리자)만 해당하게
+	AND m.grade = 1;
+
+-- 일반 게시판 쿼리문
+SELECT d.title				-- 게시판은 제목만 출력(게시글 클릭시 글 내용 보임)
+FROM board d ON members m	-- board 테이블과 members 테이블 조인
+ON d.id = m.id 				-- members 테이블의 유저 id와 board 테이블의 글 작성 id가 일치하고 등급이 2(일반)만 해당하게
+	AND m.grade = 2;
+
+-- 뮤지션 게시판
+SELECT d.title				-- 게시판은 제목만 출력(게시글 클릭시 글 내용 보임)
+FROM board d ON members m	-- board 테이블과 members 테이블 조인
+ON d.id = m.id 				-- members 테이블의 유저 id와 board 테이블의 글 작성 id가 일치하고 등급이 3(뮤지션)만 해당하게
+	AND m.grade = 3;
+
+=========================================================================================
+3. 쪽지 DB
+-컬럼
+-보낼 사람id, 받을 사람id, 내용
+
+CREATE TABLE message(
+	send_id char(20),
+	get_id char(20),
+	send_time char(20),
+	text char
+);

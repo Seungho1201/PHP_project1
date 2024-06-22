@@ -54,11 +54,10 @@
     elseif($grade == 1) { $level = "일반";}
     else { $level = "뮤지션"; }
     ?>
-    <div class="header">
-        <a href="main_page.php" style="text-decoration-line: none; color: black">
-            <h1 style="font-size: 75px;">PHP PROJECT</h1>
-        </a>
-    </div>
+    <header>
+    	<?php include "header.php";?>
+    </header>
+    
     <div style="width: 80%; border: 2px solid; text-align: center;" id='round'>
         <h3>닉네임: <?= $name?> 
             <hr class="vertical-hr">

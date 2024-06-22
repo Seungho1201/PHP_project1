@@ -8,7 +8,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>    
+    <body> 
+        
         <!--메인 페이지 출력-->
 	<?php include "main_page.php";?>     
     </body>

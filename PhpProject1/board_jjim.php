@@ -32,7 +32,7 @@ $check_result = mysqli_query($con, $check_sql);
 
 if (mysqli_num_rows($check_result) > 0) {
     // 이미 존재하는 경우
-    echo "이미 찜한 항목입니다.";
+    //echo "이미 찜한 항목입니다.";
 } else {
     // 존재하지 않는 경우, 삽입
     $sql = "INSERT INTO members_jjim (id, num) VALUES ('$id', '$num')";
